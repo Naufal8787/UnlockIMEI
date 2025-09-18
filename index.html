@@ -32,7 +32,16 @@
     .price {
       font-size: 28px;
       margin: 15px 0;
+    }
+    .harga-normal {
+      color: #888;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .harga-promo {
       color: #00ff88;
+      font-size: 28px;
+      font-weight: bold;
     }
     ul {
       text-align: left;
@@ -83,7 +92,7 @@
 <body>
   <header>
     <h1>Paket Jasa Unblock IMEI</h1>
-    <p>Dapatkan akses IMEI 3 bulan hanya Rp220.000</p>
+    <p>Dapatkan akses IMEI 3 bulan dengan harga promo spesial 🎉</p>
   </header>
 
   <div class="container">
@@ -96,7 +105,10 @@
       <li>✅ Garansi uang kembali jika gagal</li>
     </ul>
 
-    <p class="price">Harga Promo: Rp220.000</p>
+    <p class="price">
+      <span class="harga-normal"><del>Rp 500.000</del></span>
+      <span class="harga-promo">Rp 220.000</span>
+    </p>
 
     <h2>Form Order</h2>
     <form id="orderForm">
@@ -112,8 +124,8 @@
       <label>Metode Pembayaran</label>
       <select id="pembayaran" required>
         <option value="">-- Pilih Metode --</option>
-        <option>Bank Transfer (BCA, BNI, Mandiri)</option>
-        <option>OVO</option>
+        <option>Bank Transfer (Bankaltimtara / BNI / SeaBank)</option>
+        <option>ShopeePay</option>
         <option>DANA</option>
         <option>GoPay</option>
         <option>QRIS</option>
@@ -124,8 +136,8 @@
 
     <div class="payment">
       <h3>Metode Pembayaran</h3>
-      <p>💳 Bank Transfer: BCA / BNI / Mandiri</p>
-      <p>📱 E-Wallet: OVO, DANA, GoPay</p>
+      <p>💳 Bank Transfer: Bankaltimtara / BNI / SeaBank</p>
+      <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
       <p>🔗 QRIS tersedia</p>
     </div>
   </div>
@@ -144,7 +156,7 @@ Nama: ${nama}%0A
 Kontak: ${kontak}%0A
 Catatan/IMEI: ${catatan}%0A
 Metode Pembayaran: ${pembayaran}`;
-      window.open(`https://wa.me/62XXXXXXXXXX?text=${pesan}`, "_blank");
+      window.open(`https://wa.me/6285245907854?text=${pesan}`, "_blank");
     });
   </script>
 </body>
