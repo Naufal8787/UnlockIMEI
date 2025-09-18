@@ -31,7 +31,7 @@
     }
     .price {
       font-size: 28px;
-      margin: 15px 0;
+      margin: 15px 0 5px 0;
     }
     .harga-normal {
       color: #bbb;
@@ -48,10 +48,21 @@
       display: inline-block;
       animation: pulse 1.5s infinite;
     }
+    .promo-info {
+      font-size: 16px;
+      color: #ff4444;
+      margin-top: 8px;
+      font-weight: bold;
+      animation: blink 1.2s infinite;
+    }
     @keyframes pulse {
       0% { transform: scale(1); box-shadow: 0 0 5px #ff0000, 0 0 10px #001f3f; }
       50% { transform: scale(1.1); box-shadow: 0 0 20px #ff0000, 0 0 25px #001f3f; }
       100% { transform: scale(1); box-shadow: 0 0 5px #ff0000, 0 0 10px #001f3f; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
     ul {
       text-align: left;
@@ -118,6 +129,7 @@
       <span class="harga-normal"><del>Rp 450.000</del></span>
       <span class="harga-promo">Rp 350.000</span>
     </p>
+    <p class="promo-info">🔥 Promo Terbatas! Hanya sampai akhir bulan</p>
 
     <h2>Form Order</h2>
     <form id="orderForm">
