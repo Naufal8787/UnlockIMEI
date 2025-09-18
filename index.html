@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #000000, #001f3f); /* hitam biru */
+      background: linear-gradient(135deg, #ff0000, #001f3f, #000000); /* merah - biru - hitam */
       color: #fff;
       text-align: center;
     }
@@ -34,18 +34,24 @@
       margin: 15px 0;
     }
     .harga-normal {
-      color: #888;
+      color: #bbb;
       font-size: 20px;
       margin-right: 10px;
     }
     .harga-promo {
-      color: #ffffff; /* angka promo putih */
+      color: #ffffff;
       font-size: 30px;
       font-weight: bold;
-      background: #001f3f;
+      background: linear-gradient(90deg, #ff0000, #001f3f);
       padding: 6px 12px;
       border-radius: 6px;
-      box-shadow: 0 0 8px rgba(0,170,255,0.6);
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 5px #ff0000, 0 0 10px #001f3f; }
+      50% { transform: scale(1.1); box-shadow: 0 0 20px #ff0000, 0 0 25px #001f3f; }
+      100% { transform: scale(1); box-shadow: 0 0 5px #ff0000, 0 0 10px #001f3f; }
     }
     ul {
       text-align: left;
@@ -164,3 +170,4 @@ Metode Pembayaran: ${pembayaran}`;
   </script>
 </body>
 </html>
+
