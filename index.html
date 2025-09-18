@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasa Unblock IMEI 3 Bulan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      color: #00aaff;
+    }
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .price {
+      font-size: 28px;
+      margin: 15px 0;
+      color: #00ff88;
+    }
+    ul {
+      text-align: left;
+      margin-top: 20px;
+    }
+    ul li {
+      margin: 8px 0;
+    }
+    form {
+      margin-top: 20px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0088cc;
+    }
+    .payment {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .payment h3 {
+      color: #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Paket Jasa Unblock IMEI</h1>
+    <p>Dapatkan akses IMEI 3 bulan hanya Rp220.000</p>
+  </header>
+
+  <div class="container">
+    <h2>Benefit</h2>
+    <ul>
+      <li>✅ Pembayaran bisa DP</li>
+      <li>✅ Garansi selama full 3 bulan</li>
+      <li>✅ Bisa untuk semua operator</li>
+      <li>✅ Proses cepat & aman</li>
+      <li>✅ Garansi uang kembali jika gagal</li>
+    </ul>
+
+    <p class="price">Harga Promo: Rp220.000</p>
+
+    <h2>Form Order</h2>
+    <form id="orderForm">
+      <label>Nama Lengkap</label>
+      <input type="text" id="nama" required>
+
+      <label>Email / WhatsApp</label>
+      <input type="text" id="kontak" required>
+
+      <label>IMEI / Catatan</label>
+      <textarea id="catatan" rows="3"></textarea>
+
+      <label>Metode Pembayaran</label>
+      <select id="pembayaran" required>
+        <option value="">-- Pilih Metode --</option>
+        <option>Bank Transfer (BCA, BNI, Mandiri)</option>
+        <option>OVO</option>
+        <option>DANA</option>
+        <option>GoPay</option>
+        <option>QRIS</option>
+      </select>
+
+      <button type="submit">Kirim Order</button>
+    </form>
+
+    <div class="payment">
+      <h3>Metode Pembayaran</h3>
+      <p>💳 Bank Transfer: BCA / BNI / Mandiri</p>
+      <p>📱 E-Wallet: OVO, DANA, GoPay</p>
+      <p>🔗 QRIS tersedia</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let nama = document.getElementById("nama").value;
+      let kontak = document.getElementById("kontak").value;
+      let catatan = document.getElementById("catatan").value;
+      let pembayaran = document.getElementById("pembayaran").value;
+
+      // otomatis buka WhatsApp
+      let pesan = `Halo Admin, saya mau order unblock IMEI 3 bulan.%0A
+Nama: ${nama}%0A
+Kontak: ${kontak}%0A
+Catatan/IMEI: ${catatan}%0A
+Metode Pembayaran: ${pembayaran}`;
+      window.open(`https://wa.me/62XXXXXXXXXX?text=${pesan}`, "_blank");
+    });
+  </script>
+</body>
+</html>
