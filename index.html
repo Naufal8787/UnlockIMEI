@@ -6,7 +6,7 @@
   <title>Unlock IMEI - Nfl87</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root{
       --bg1: #0f0f0f;
       --bg2: #001f3f;
       --accent: #00aaff;
@@ -24,49 +24,181 @@
       background-size: 600% 600%;
       animation: moveBG 15s ease infinite;
     }
-    @keyframes moveBG {0% { background-position: 0% 50%; }50% { background-position: 100% 50%; }100% { background-position: 0% 50%; }}
+    @keyframes moveBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     header {
       background: rgba(20,20,20,0.9);
       padding: 22px;
       box-shadow: 0 0 20px rgba(255,0,0,0.35);
       border-bottom: 2px solid var(--accent);
     }
-    header h1 {margin:0;font-size:28px;font-weight:800;color:var(--accent);text-shadow:0 0 10px var(--accent),0 0 20px #0055ff}
-    header p {margin-top:6px;font-size:14px;color:var(--danger)}
+    header h1 {
+      margin:0;
+      font-size:28px;
+      font-weight:800;
+      color:var(--accent);
+      text-shadow:0 0 10px var(--accent),0 0 20px #0055ff;
+    }
+    header p {
+      margin-top:6px;
+      font-size:14px;
+      color:var(--danger);
+    }
 
-    .container{max-width:820px;margin:28px auto;background:rgba(20,20,20,0.92);padding:22px;border-radius:14px;box-shadow:0 0 20px rgba(0,170,255,0.25)}
-    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .container {
+      max-width:820px;
+      margin:28px auto;
+      background:rgba(20,20,20,0.92);
+      padding:22px;
+      border-radius:14px;
+      box-shadow:0 0 20px rgba(0,170,255,0.25);
+      text-align:center;
+    }
 
-    .benefit{ text-align:left }
-    h2{color:var(--danger);margin:6px 0 12px 0;text-shadow:0 0 10px #ff0000}
-    ul{margin:0;padding-left:18px}
-    ul li{margin:8px 0;font-size:15px}
+    h2 {
+      color:var(--danger);
+      margin:12px 0;
+      text-shadow:0 0 10px #ff0000;
+    }
+    ul {
+      margin:0 auto;
+      display:inline-block;
+      text-align:left;
+    }
+    ul li {
+      margin:8px 0;
+      font-size:15px;
+    }
 
-    .pricing{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
-    .price-card{flex:1;min-width:180px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;position:relative}
-    .price-card h3{margin:0 0 6px 0;font-size:16px}
-    .price-amount{font-size:20px;font-weight:800;color:var(--accent-2);}
-    .badge{display:inline-block;padding:4px 8px;border-radius:8px;background:rgba(0,170,255,0.08);font-weight:600;color:var(--accent)}
-    .price-card input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+    .pricing {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:12px;
+    }
+    .price-card {
+      flex:1;
+      min-width:180px;
+      max-width:200px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,0.08);
+      cursor:pointer;
+      transition:0.25s;
+      position:relative;
+    }
+    .price-card:hover {
+      transform:scale(1.05);
+    }
+    .price-card h3 {margin:0 0 6px 0;font-size:16px}
+    .price-amount {font-size:20px;font-weight:800;color:var(--accent-2);}
+    .badge {
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:8px;
+      background:rgba(0,170,255,0.08);
+      font-weight:600;
+      color:var(--accent);
+      font-size:13px;
+    }
 
-    form{margin-top:6px;text-align:left}
-    label{display:block;margin-top:10px;font-weight:600}
-    input, select, textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:none;font-family:'Poppins',sans-serif}
+    /* Highlight paket yang dipilih */
+    .price-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 15px var(--accent-2);
+      animation: pulseSelect 0.4s ease;
+    }
+    .price-card.active::after {
+      content: "✅";
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 18px;
+      color: var(--accent-2);
+      text-shadow: 0 0 6px var(--accent);
+    }
 
-    .total-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-    .total-label{font-weight:700}
-    .total-amount{font-size:22px;font-weight:900;color:var(--accent-2)}
+    /* Animasi klik paket */
+    @keyframes pulseSelect {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
 
-    button{margin-top:16px;padding:12px;width:100%;background:transparent;color:#fff;border:2px solid var(--accent);border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:0.25s;animation:neonButton 2s infinite alternate}
-    @keyframes neonButton{0%{box-shadow:0 0 8px #ff3333;border-color:#ff3333;color:#fff}100%{box-shadow:0 0 12px var(--accent);border-color:var(--accent);color:var(--accent-2)}}
-    button:hover{transform:scale(1.03)}
+    form {
+      margin-top:16px;
+      text-align:left;
+    }
+    label {
+      display:block;
+      margin-top:10px;
+      font-weight:600;
+    }
+    input, select, textarea {
+      width:100%;
+      padding:10px;
+      margin-top:6px;
+      border-radius:8px;
+      border:none;
+      font-family:'Poppins',sans-serif;
+    }
 
-    .payment{margin-top:18px;text-align:left}
-    .payment h3{color:#00ff88;text-shadow:0 0 8px #00ff88}
-    .qris-box{text-align:center;margin-top:12px}
-    .qris-box img{width:220px;border:4px solid var(--accent);border-radius:12px;box-shadow:0 0 18px var(--accent-2)}
+    .total-row {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:14px;
+    }
+    .total-label {font-weight:700}
+    .total-amount {
+      font-size:22px;
+      font-weight:900;
+      color:var(--accent-2);
+    }
 
-    @media(min-width:900px){.grid{grid-template-columns:1fr 340px}}
+    button {
+      margin-top:16px;
+      padding:12px;
+      width:100%;
+      background:transparent;
+      color:#fff;
+      border:2px solid var(--accent);
+      border-radius:10px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.25s;
+      animation:neonButton 2s infinite alternate;
+    }
+    @keyframes neonButton {
+      0%{box-shadow:0 0 8px #ff3333;border-color:#ff3333;color:#fff}
+      100%{box-shadow:0 0 12px var(--accent);border-color:var(--accent);color:var(--accent-2)}
+    }
+    button:hover {transform:scale(1.03)}
+
+    .payment {
+      margin-top:18px;
+      text-align:left;
+    }
+    .payment h3 {
+      color:#00ff88;
+      text-shadow:0 0 8px #00ff88;
+    }
+    .qris-box {
+      text-align:center;
+      margin-top:12px;
+    }
+    .qris-box img {
+      width:220px;
+      border:4px solid var(--accent);
+      border-radius:12px;
+      box-shadow:0 0 18px var(--accent-2);
+    }
   </style>
 </head>
 <body>
@@ -76,131 +208,124 @@
   </header>
 
   <div class="container">
-    <div class="grid">
-      <div>
-        <h2>Benefit</h2>
-        <ul class="benefit">
-          <li>✅ Garansi sesuai paket (lihat keterangan paket)</li>
-          <li>✅ Support all operator</li>
-          <li>✅ Proses aman</li>
-          <li>✅ Refund jika gagal sesuai syarat</li>
-        </ul>
+    <h2>Benefit</h2>
+    <ul>
+      <li>✅ Garansi sesuai paket (lihat keterangan paket)</li>
+      <li>✅ Support all operator</li>
+      <li>✅ Proses aman</li>
+      <li>✅ Refund jika gagal sesuai syarat</li>
+    </ul>
 
-        <h2>Pilih Paket Unlock</h2>
-        <div class="pricing" id="pricingCards">
-          <label class="price-card">
-            <h3>1 Bulan</h3>
-            <div class="price-amount" data-price="185000">Rp 185.000</div>
-            <div class="badge">Estimasi proses: Hitungan Jam</div>
-            <input type="radio" name="paket" value="1-bulan" data-price="185000">
-          </label>
-          <label class="price-card">
-            <h3>3 Bulan - Slow</h3>
-            <div class="price-amount" data-price="195000">Rp 195.000</div>
-            <div class="badge">Estimasi proses: 1-2 hari</div>
-            <input type="radio" name="paket" value="3-slow" data-price="195000">
-          </label>
-          <label class="price-card">
-            <h3>3 Bulan - Semi Fast</h3>
-            <div class="price-amount" data-price="280000">Rp 280.000</div>
-            <div class="badge">Estimasi proses: Hitungan Jam</div>
-            <input type="radio" name="paket" value="3-semi" data-price="280000">
-          </label>
-          <label class="price-card">
-            <h3>3 Bulan - Fast</h3>
-            <div class="price-amount" data-price="300000">Rp 300.000</div>
-            <div class="badge">Estimasi proses: Hitungan Menit</div>
-            <input type="radio" name="paket" value="3-fast" data-price="300000">
-          </label>
-        </div>
+    <h2>Pilih Paket Unlock</h2>
+    <div class="pricing" id="pricingCards">
+      <div class="price-card" data-value="1-bulan" data-price="185000">
+        <h3>1 Bulan</h3>
+        <div class="price-amount">Rp 185.000</div>
+        <div class="badge">Estimasi proses: Hitungan Jam</div>
+      </div>
+      <div class="price-card" data-value="3-slow" data-price="195000">
+        <h3>3 Bulan - Slow</h3>
+        <div class="price-amount">Rp 195.000</div>
+        <div class="badge">Estimasi proses: 1-2 Hari</div>
+      </div>
+      <div class="price-card" data-value="3-semi" data-price="280000">
+        <h3>3 Bulan - Semi Fast</h3>
+        <div class="price-amount">Rp 280.000</div>
+        <div class="badge">Estimasi proses: Hitungan Jam</div>
+      </div>
+      <div class="price-card" data-value="3-fast" data-price="300000">
+        <h3>3 Bulan - Fast</h3>
+        <div class="price-amount">Rp 300.000</div>
+        <div class="badge">Estimasi proses: Hitungan Menit</div>
+      </div>
+    </div>
 
-        <h2>Form Order</h2>
-        <form id="orderForm">
-          <label>Nama Lengkap</label>
-          <input type="text" id="nama" placeholder="Nama customer" required>
+    <h2>Form Order</h2>
+    <form id="orderForm">
+      <label>Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Nama customer" required>
 
-          <label>Nomor WhatsApp</label>
-          <input type="tel" id="kontak" placeholder="08xx... (tanpa +)" required>
+      <label>Nomor WhatsApp</label>
+      <input type="tel" id="kontak" placeholder="08xx... (tanpa +)" required>
 
-          <label>Kode IMEI</label>
-          <textarea id="imei" rows="3" placeholder="Contoh: 359876091234567" required></textarea>
+      <label>Kode IMEI</label>
+      <textarea id="catatan" rows="3" placeholder="Contoh: 359876091234567" required></textarea>
 
-          <label>Metode Pembayaran</label>
-          <select id="pembayaran" required>
-            <option value="">-- Pilih Metode --</option>
-            <option>Bank Transfer (Bankaltimtara / BNI / SeaBank)</option>
-            <option>DANA</option>
-            <option>GoPay</option>
-            <option>ShopeePay</option>
-            <option>QRIS</option>
-          </select>
+      <label>Metode Pembayaran</label>
+      <select id="pembayaran" required>
+        <option value="">-- Pilih Metode --</option>
+        <option>Bank Transfer (Bankaltimtara / BNI / SeaBank)</option>
+        <option>DANA</option>
+        <option>GoPay</option>
+        <option>ShopeePay</option>
+        <option>QRIS</option>
+      </select>
 
-          <div class="total-row">
-            <div class="total-label">Total Bayar</div>
-            <div class="total-amount" id="totalAmount">-</div>
-          </div>
+      <div class="total-row">
+        <div class="total-label">Total Bayar</div>
+        <div class="total-amount" id="totalAmount">-</div>
+      </div>
 
-          <button type="submit" id="submitBtn">🚀 Kirim Order via WhatsApp</button>
-        </form>
+      <button type="submit">🚀 Kirim Order via WhatsApp</button>
+    </form>
 
-        <div class="payment">
-          <h3>Metode Pembayaran</h3>
-          <p>💳 Bank Transfer: Bankaltimtara / BNI / SeaBank</p>
-          <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
-          <p>🔗 QRIS Admin tersedia (scan di samping)</p>
-
-          <div class="qris-box">
-            <h3>Scan QRIS untuk Pembayaran</h3>
-            <img src="qris.jpeg" alt="QRIS Pembayaran">
-          </div>
-        </div>
+    <div class="payment">
+      <h3>Metode Pembayaran</h3>
+      <p>💳 Bank Transfer: Bankaltimtara / BNI / SeaBank</p>
+      <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
+      <p>🔗 QRIS Admin tersedia (scan di bawah)</p>
+      <div class="qris-box">
+        <h3>Scan QRIS untuk Pembayaran</h3>
+        <img src="qris.jpeg" alt="QRIS Pembayaran">
       </div>
     </div>
   </div>
 
   <script>
     const totalEl = document.getElementById('totalAmount');
-    const planRadios = document.querySelectorAll('input[name="paket"]');
+    const form = document.getElementById('orderForm');
+    let selectedPlan = null;
 
     function formatRupiah(num){
       return 'Rp ' + Number(num).toLocaleString('id-ID');
     }
 
-    function updateTotal(){
-      const selected = document.querySelector('input[name="paket"]:checked');
-      if(selected){
-        totalEl.textContent = formatRupiah(selected.dataset.price);
-      } else {
-        totalEl.textContent = '-';
-      }
-    }
+    document.getElementById('pricingCards').addEventListener('click', e => {
+      const card = e.target.closest('.price-card');
+      if(!card) return;
 
-    planRadios.forEach(r => r.addEventListener('change', updateTotal));
+      // reset semua
+      document.querySelectorAll('.price-card').forEach(c=>c.classList.remove("active"));
 
-    document.getElementById('orderForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const nama = document.getElementById('nama').value.trim();
-      const kontak = document.getElementById('kontak').value.trim();
-      const imei = document.getElementById('imei').value.trim();
-      const pembayaran = document.getElementById('pembayaran').value;
-      const selected = document.querySelector('input[name="paket"]:checked');
-      if(!selected){ alert('Pilih paket terlebih dahulu.'); return; }
-      const paketLabel = selected.parentElement.querySelector('h3').innerText;
-      const harga = selected.dataset.price;
+      // aktifkan yang dipilih
+      card.classList.add("active");
 
-      let pesan = `Halo Admin, saya mau order unlock IMEI.%0A` +
-                 `Nama: ${encodeURIComponent(nama)}%0A` +
-                 `Kontak: ${encodeURIComponent(kontak)}%0A` +
-                 `Paket: ${encodeURIComponent(paketLabel)}%0A` +
-                 `Harga: ${encodeURIComponent(formatRupiah(harga))}%0A` +
-                 `Kode IMEI: ${encodeURIComponent(imei)}%0A` +
-                 `Metode Pembayaran: ${encodeURIComponent(pembayaran)}`;
-
-      const waNumber = '6285245907854';
-      window.open(`https://wa.me/${waNumber}?text=${pesan}`,'_blank');
+      selectedPlan = {
+        label: card.querySelector('h3').innerText,
+        price: card.dataset.price
+      };
+      totalEl.textContent = formatRupiah(selectedPlan.price);
+      window.scrollTo({top: form.offsetTop - 20, behavior:'smooth'});
     });
 
-    updateTotal();
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if(!selectedPlan){ alert("Pilih paket unlock dulu."); return; }
+      const nama = document.getElementById('nama').value.trim();
+      const kontak = document.getElementById('kontak').value.trim();
+      const imei = document.getElementById('catatan').value.trim();
+      const pembayaran = document.getElementById('pembayaran').value;
+
+      let pesan = `Halo Admin, saya mau order unlock IMEI.%0A` +
+                  `Nama: ${nama}%0A` +
+                  `Kontak: ${kontak}%0A` +
+                  `Paket: ${selectedPlan.label}%0A` +
+                  `Harga: ${formatRupiah(selectedPlan.price)}%0A` +
+                  `Kode IMEI: ${imei}%0A` +
+                  `Metode Pembayaran: ${pembayaran}`;
+      const waNumber = "6285245907854";
+      window.open(`https://wa.me/${waNumber}?text=${pesan}`,'_blank');
+    });
   </script>
 </body>
 </html>
