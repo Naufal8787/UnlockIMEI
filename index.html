@@ -39,7 +39,6 @@
       margin:0;
       font-size:28px;
       font-weight:800;
-      animation: blinkColor 1.2s infinite alternate;
     }
     header p {
       margin-top:6px;
@@ -51,6 +50,9 @@
     @keyframes blinkColor {
       0% { color: #00aaff; text-shadow: 0 0 8px #00aaff; }
       100% { color: #ff3333; text-shadow: 0 0 8px #ff3333; }
+    }
+    .blink-text {
+      animation: blinkColor 1.2s infinite alternate;
     }
 
     .container {
@@ -187,10 +189,6 @@
       margin-top:18px;
       text-align:left;
     }
-    .payment h3,
-    .qris-box h3 {
-      animation: blinkColor 1.2s infinite alternate;
-    }
     .qris-box {
       text-align:center;
       margin-top:12px;
@@ -205,7 +203,7 @@
 </head>
 <body>
   <header>
-    <h1>Unlock IMEI by Nfl87</h1>
+    <h1 class="blink-text">Unlock IMEI by Nfl87</h1>
     <p>Pilih paket unlock IMEI yang sesuai: 1 bulan atau 3 bulan (slow / semi fast / fast)</p>
   </header>
 
@@ -272,12 +270,12 @@
     </form>
 
     <div class="payment">
-      <h3>Metode Pembayaran</h3>
+      <h3 class="blink-text">Metode Pembayaran</h3>
       <p>💳 Bank Transfer: Bankaltimtara / BNI / SeaBank</p>
       <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
       <p>🔗 QRIS Admin tersedia (scan di bawah)</p>
       <div class="qris-box">
-        <h3>Scan QRIS untuk Pembayaran</h3>
+        <h3 class="blink-text">Scan QRIS untuk Pembayaran</h3>
         <img src="qris.jpeg" alt="QRIS Pembayaran">
       </div>
     </div>
