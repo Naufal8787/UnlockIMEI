@@ -39,13 +39,23 @@
       margin:0;
       font-size:28px;
       font-weight:800;
-      color:var(--accent);
-      text-shadow:0 0 10px var(--accent),0 0 20px #0055ff;
     }
     header p {
       margin-top:6px;
       font-size:14px;
       color:var(--danger);
+    }
+
+    /* 🔥 Animasi Blink Teks */
+    .blink-text {
+      animation: neonBlink 2s infinite alternate;
+    }
+    @keyframes neonBlink {
+      0%   { color:#ff3333; text-shadow:0 0 8px #ff3333,0 0 16px #ff6666; }
+      25%  { color:#00aaff; text-shadow:0 0 8px #00aaff,0 0 16px #00ffff; }
+      50%  { color:#00ff88; text-shadow:0 0 8px #00ff88,0 0 16px #00ffaa; }
+      75%  { color:#ffff33; text-shadow:0 0 8px #ffff33,0 0 16px #ffdd55; }
+      100% { color:#ff00ff; text-shadow:0 0 8px #ff00ff,0 0 16px #ff66ff; }
     }
 
     .container {
@@ -92,9 +102,7 @@
       transition:0.25s;
       position:relative;
     }
-    .price-card:hover {
-      transform:scale(1.05);
-    }
+    .price-card:hover { transform:scale(1.05); }
     .price-card h3 {margin:0 0 6px 0;font-size:16px}
     .price-amount {font-size:20px;font-weight:800;color:var(--accent-2);}
     .badge {
@@ -107,7 +115,6 @@
       font-size:13px;
     }
 
-    /* Highlight paket yang dipilih */
     .price-card.active {
       border-color: var(--accent);
       box-shadow: 0 0 15px var(--accent-2);
@@ -122,58 +129,34 @@
       color: var(--accent-2);
       text-shadow: 0 0 6px var(--accent);
     }
-
-    /* Animasi klik paket */
     @keyframes pulseSelect {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
 
-    form {
-      margin-top:16px;
-      text-align:left;
-    }
-    label {
-      display:block;
-      margin-top:10px;
-      font-weight:600;
-    }
+    form { margin-top:16px; text-align:left; }
+    label { display:block; margin-top:10px; font-weight:600; }
     input, select, textarea {
-      width:100%;
-      padding:10px;
-      margin-top:6px;
-      border-radius:8px;
-      border:none;
-      font-family:'Poppins',sans-serif;
+      width:100%; padding:10px; margin-top:6px;
+      border-radius:8px; border:none; font-family:'Poppins',sans-serif;
     }
 
     .total-row {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-top:14px;
+      display:flex; justify-content:space-between;
+      align-items:center; margin-top:14px;
     }
     .total-label {font-weight:700}
     .total-amount {
-      font-size:22px;
-      font-weight:900;
-      color:var(--accent-2);
+      font-size:22px; font-weight:900; color:var(--accent-2);
     }
 
     button {
-      margin-top:16px;
-      padding:12px;
-      width:100%;
-      background:transparent;
-      color:#fff;
-      border:2px solid var(--accent);
-      border-radius:10px;
-      font-size:16px;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.25s;
-      animation:neonButton 2s infinite alternate;
+      margin-top:16px; padding:12px; width:100%;
+      background:transparent; color:#fff;
+      border:2px solid var(--accent); border-radius:10px;
+      font-size:16px; font-weight:700; cursor:pointer;
+      transition:0.25s; animation:neonButton 2s infinite alternate;
     }
     @keyframes neonButton {
       0%{box-shadow:0 0 8px #ff3333;border-color:#ff3333;color:#fff}
@@ -181,29 +164,18 @@
     }
     button:hover {transform:scale(1.03)}
 
-    .payment {
-      margin-top:18px;
-      text-align:left;
-    }
-    .payment h3 {
-      color:#00ff88;
-      text-shadow:0 0 8px #00ff88;
-    }
-    .qris-box {
-      text-align:center;
-      margin-top:12px;
-    }
+    .payment { margin-top:18px; text-align:left; }
+    .payment h3 { margin-bottom:6px; }
+    .qris-box { text-align:center; margin-top:12px; }
     .qris-box img {
-      width:220px;
-      border:4px solid var(--accent);
-      border-radius:12px;
-      box-shadow:0 0 18px var(--accent-2);
+      width:220px; border:4px solid var(--accent);
+      border-radius:12px; box-shadow:0 0 18px var(--accent-2);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Unlock IMEI by Nfl87</h1>
+    <h1 class="blink-text">Unlock IMEI by Nfl87</h1>
     <p>Pilih paket unlock IMEI yang sesuai: 1 bulan atau 3 bulan (slow / semi fast / fast)</p>
   </header>
 
@@ -251,7 +223,7 @@
       <label>Kode IMEI</label>
       <textarea id="catatan" rows="3" placeholder="Contoh: 359876091234567" required></textarea>
 
-      <label>Metode Pembayaran</label>
+      <label class="blink-text">Metode Pembayaran</label>
       <select id="pembayaran" required>
         <option value="">-- Pilih Metode --</option>
         <option>Bank Transfer (Bankaltimtara / BNI / SeaBank)</option>
@@ -270,12 +242,12 @@
     </form>
 
     <div class="payment">
-      <h3>Metode Pembayaran</h3>
+      <h3 class="blink-text">Metode Pembayaran</h3>
       <p>💳 Bank Transfer: Bankaltimtara / BNI / SeaBank</p>
       <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
       <p>🔗 QRIS Admin tersedia (scan di bawah)</p>
       <div class="qris-box">
-        <h3>Scan QRIS untuk Pembayaran</h3>
+        <h3 class="blink-text">Scan QRIS untuk Pembayaran</h3>
         <img src="qris.jpeg" alt="QRIS Pembayaran">
       </div>
     </div>
@@ -293,17 +265,9 @@
     document.getElementById('pricingCards').addEventListener('click', e => {
       const card = e.target.closest('.price-card');
       if(!card) return;
-
-      // reset semua
       document.querySelectorAll('.price-card').forEach(c=>c.classList.remove("active"));
-
-      // aktifkan yang dipilih
       card.classList.add("active");
-
-      selectedPlan = {
-        label: card.querySelector('h3').innerText,
-        price: card.dataset.price
-      };
+      selectedPlan = { label: card.querySelector('h3').innerText, price: card.dataset.price };
       totalEl.textContent = formatRupiah(selectedPlan.price);
       window.scrollTo({top: form.offsetTop - 20, behavior:'smooth'});
     });
@@ -315,7 +279,6 @@
       const kontak = document.getElementById('kontak').value.trim();
       const imei = document.getElementById('catatan').value.trim();
       const pembayaran = document.getElementById('pembayaran').value;
-
       let pesan = `Halo Admin, saya mau order unlock IMEI.%0A` +
                   `Nama: ${nama}%0A` +
                   `Nomor WhatsApp: ${kontak}%0A` +
