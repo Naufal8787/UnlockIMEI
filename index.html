@@ -189,16 +189,38 @@
       margin-top:18px;
       text-align:left;
     }
+
     .qris-box {
       text-align:center;
       margin-top:12px;
     }
+
+    /* ✨ Efek neon menyala untuk QRIS */
     .qris-box img {
       width:220px;
       border:4px solid var(--accent);
       border-radius:12px;
       box-shadow:0 0 18px var(--accent-2);
+      animation: qrisGlow 2s infinite alternate;
     }
+    @keyframes qrisGlow {
+      0% {
+        box-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333;
+        border-color: #ff3333;
+      }
+      100% {
+        box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent-2);
+        border-color: var(--accent);
+      }
+    }
+    .qris-box h3 {
+      animation: qrisTextGlow 1.8s infinite alternate;
+    }
+    @keyframes qrisTextGlow {
+      0% { color: #ff3333; text-shadow: 0 0 10px #ff3333; }
+      100% { color: var(--accent-2); text-shadow: 0 0 15px var(--accent-2); }
+    }
+
   </style>
 </head>
 <body>
@@ -275,7 +297,7 @@
       <p>📱 E-Wallet: DANA, GoPay, ShopeePay</p>
       <p>🔗 QRIS Admin tersedia (scan di bawah)</p>
       <div class="qris-box">
-        <h3 class="blink-text">Scan QRIS untuk Pembayaran</h3>
+        <h3>Scan QRIS untuk Pembayaran</h3>
         <img src="qris.jpeg" alt="QRIS Pembayaran">
       </div>
     </div>
