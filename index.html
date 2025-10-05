@@ -104,12 +104,33 @@
     }
     .price-card h3 {margin:0 0 6px 0;font-size:16px}
 
-    /* 💰 Efek kelap-kelip di harga paket */
+    /* ✨ Efek harga kelap-kelip + lampu berjalan */
     .price-amount {
       font-size:20px;
       font-weight:800;
-      color:var(--accent-2);
-      animation: blinkColor 1.5s infinite alternate;
+      position: relative;
+      color: var(--accent-2);
+      animation: blinkPrice 1.5s infinite alternate;
+      overflow: hidden;
+    }
+    @keyframes blinkPrice {
+      0% { color: #00aaff; text-shadow: 0 0 8px #00aaff; }
+      100% { color: #ff3333; text-shadow: 0 0 8px #ff3333; }
+    }
+    .price-amount::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
     }
 
     .badge {
@@ -221,13 +242,11 @@
         border-color: var(--accent);
       }
     }
-    .qris-box h3,
-    .payment h3 {
-      animation: qrisTextGlow 1.8s infinite alternate;
-    }
-    @keyframes qrisTextGlow {
-      0% { color: #ff3333; text-shadow: 0 0 10px #ff3333; }
-      100% { color: var(--accent-2); text-shadow: 0 0 15px var(--accent-2); }
+
+    /* ✨ Efek kedap-kedip di tulisan Metode Pembayaran & Scan QRIS */
+    .payment h3,
+    .qris-box h3 {
+      animation: blinkColor 1.3s infinite alternate;
     }
   </style>
 </head>
@@ -325,6 +344,7 @@
       if(!card) return;
 
       document.querySelectorAll('.price-card').forEach(c=>c.classList.remove("active"));
+
       card.classList.add("active");
 
       selectedPlan = {
