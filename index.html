@@ -46,7 +46,7 @@
       color:var(--danger);
     }
 
-    /* Efek kelap-kelip biru merah */
+    /* Efek kelap-kelip biru merah untuk teks */
     @keyframes blinkColor {
       0% { color: #00aaff; text-shadow: 0 0 8px #00aaff; }
       100% { color: #ff3333; text-shadow: 0 0 8px #ff3333; }
@@ -102,8 +102,31 @@
     .price-card:hover {
       transform:scale(1.05);
     }
+
     .price-card h3 {margin:0 0 6px 0;font-size:16px}
-    .price-amount {font-size:20px;font-weight:800;color:var(--accent-2);}
+
+    /* 💡 Efek kelap-kelip neon hanya untuk harga */
+    .price-amount {
+      font-size:20px;
+      font-weight:800;
+      color:var(--accent-2);
+      animation: priceGlow 1.5s infinite alternate;
+    }
+    @keyframes priceGlow {
+      0% {
+        color:#00aaff;
+        text-shadow: 0 0 8px #00aaff, 0 0 15px #00aaff;
+      }
+      50% {
+        color:#ff3333;
+        text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333;
+      }
+      100% {
+        color:#00eaff;
+        text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+      }
+    }
+
     .badge {
       display:inline-block;
       padding:4px 8px;
